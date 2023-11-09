@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	setlocale(0, "");
+	int n, temp_id;
+	int id[100];
+	int score[100];
+
+	cout << "Введите количество участников: ";
+	cin >> n;
+		for (int i = 0; i < n; i++)
+		{
+			cout << "Введите номер игрока: ";
+			cin >> id[i];
+			cout << "Введите количество баллов игрока: ";
+			cin >> score[i];
+		}
+
+		for (int i = 0; i < n; i++)
+		{
+			for (int j = 0; j < n; j++)
+			{
+				if (score[i] < score[j])
+				{
+					temp_id = id[i];
+					id[i] = id[j];
+					id[j] = temp_id;
+					int temp_score = score[i];
+					score[i] = score[j];
+					score[j] = temp_score;
+				}
+			}
+		}
+	for (int i = 0; i < n; i++)
+	{
+		cout << "\t";
+		cout << "Участник с этим номером № " << id[i] << " набрал: " << score[i] << " баллов " << endl;
+	}
+
+	return 0;
+}
